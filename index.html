@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 For Diya — Will You Be My Valentine?</title>
+    <meta name="description" content="A romantic Valentine's Day surprise dedicated to Diya.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==================== FLOATING HEARTS BACKGROUND ==================== -->
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <!-- ==================== AMBIENT GLOW ORBS ==================== -->
+    <div class="ambient-glow ambient-glow-1"></div>
+    <div class="ambient-glow ambient-glow-2"></div>
+    <div class="ambient-glow ambient-glow-3"></div>
+
+    <!-- ==================== CURSOR HEART TRAIL ==================== -->
+    <div id="cursorTrail"></div>
+
+    <!-- ==================== NAVIGATION BAR ==================== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">💖 For Diya</div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+        <ul class="nav-links" id="navLinks">
+        </ul>
+    </nav>
+
+    <!-- ==================== LANDING PAGE ==================== -->
+    <section class="page active" id="landingPage">
+        <div class="landing-content">
+            <div class="sparkle-container">
+                <span class="sparkle">✨</span>
+                <span class="sparkle">💫</span>
+                <span class="sparkle">✨</span>
+            </div>
+            <h1 class="landing-title">Diya,</h1>
+            <h2 class="landing-subtitle">will you be my Valentine?</h2>
+            <p class="landing-tagline">I've been thinking about this for a while... 💭</p>
+            <div class="btn-container" id="btnContainer">
+                <button class="btn btn-yes" id="btnYes" onclick="handleYes()">Yes 💖</button>
+                <button class="btn btn-no" id="btnNo" onclick="">No 🙈</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== NO RESPONSE MODAL ==================== -->
+    <section class="page" id="noResponsePage">
+        <div class="modal-card">
+            <div class="modal-emoji" id="noEmoji">🥺</div>
+            <h2 class="modal-title" id="noTitle">Are you sure?</h2>
+            <p class="modal-text" id="noText">Loading sweet message...</p>
+            <div class="btn-container">
+                <button class="btn btn-yes" onclick="handleYes()">Yes 💖</button>
+                <button class="btn btn-no" id="btnNoAgain" onclick="">No 🙈</button>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL NO PAGE (Only Yes) ==================== -->
+    <section class="page" id="finalNoPage">
+        <div class="modal-card final-card">
+            <div class="modal-emoji">😢💔</div>
+            <h2 class="modal-title">Diya...</h2>
+            <p class="modal-text">I literally can't take no for an answer because my heart only beats for you. So
+                there's only one option left... 💕</p>
+            <div class="btn-container">
+                <button class="btn btn-yes btn-big" onclick="handleYes()">Okay fine... Yes! 💖✨</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LOVE LETTER PAGE ==================== -->
+    <section class="page" id="loveLetter">
+        <div class="letter-container">
+            <div class="envelope" id="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <p class="envelope-label">💌 A letter for you, Diya</p>
+                </div>
+            </div>
+            <div class="letter-card" id="letterCard">
+                <h2 class="letter-heading">Dear Diya 💕</h2>
+                <div class="letter-body">
+                    <p>Dear Diya,</p>
+                    <p>Kyarthi ae exact nathi khabar… pan dhire dhire tu special thai gai che.</p>
+                    <p>❤️ Jyare tu smile kare che ne, tyare honestly bathu bau beautiful lage 🙂
+                        Ane sach kahu — tara saathe vaat karu ne, to badho stress, badhi tension automatically gayab
+                        thai jay che ❤️</p>
+                    <p>Life perfect nathi, pan tu saathe hoy ne to bathu perfect lage che.</p>
+                    <p>Bas etlu kehvu hatu — I really like you… genuinely, from my heart ❤️</p>
+                    <p class="letter-sign">From Jay 🌹</p>
+                </div>
+            </div>
+        </div>
+        <button class="btn-next" onclick="goToNextPage('pickupLinePage')">Next →</button>
+    </section>
+
+    <!-- ==================== PICKUP LINE PAGE ==================== -->
+    <section class="page" id="pickupLinePage">
+        <div class="pickup-line-container">
+            <div class="pickup-line-text" id="pickupLineText"></div>
+            <button class="btn-next" id="pickupLineNextBtn" onclick="goToNextPage('reasonsPage')"
+                style="display: none;">Next →</button>
+        </div>
+    </section>
+
+    <!-- ==================== WHY I LIKE YOU PAGE ==================== -->
+    <section class="page" id="reasonsPage">
+        <h2 class="section-title">Why I Like You 🌸</h2>
+        <p class="section-subtitle">Flip each card to discover a reason 💕</p>
+        <div class="cards-grid">
+            <div class="flip-card" onclick="handleCardFlip(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><span>😊</span>
+                        <p>Reason #1</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>"Tari smile ma ek alag j magic che…
+                            Mood ketlo pan off hoy, instantly better thai jay."</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" onclick="handleCardFlip(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><span>✨</span>
+                        <p>Reason #2</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>"Taro nature khub genuine che —
+                            ane e j kharekhar mane special lage che."</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" onclick="handleCardFlip(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><span>💫</span>
+                        <p>Reason #3</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>"Tu simple che pan boring bilkul nathi —
+                            e rare che."</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" onclick="handleCardFlip(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><span>🦋</span>
+                        <p>Reason #4</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>"Tara saathe vaat jyare karu ne, tyare time ni khabar j nathi padti…
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" onclick="handleCardFlip(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><span>🌙</span>
+                        <p>Reason #5</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>"Tari saathe ek comfort che —
+                            je explain karvu mushkil che pan feel khub saru thay che."</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" onclick="handleCardFlip(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><span>🌹</span>
+                        <p>Reason #6</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>"Tu koi makeup vagar bau cute and beautiful lage che 🙂</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" onclick="handleCardFlip(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><span>💖</span>
+                        <p>Reason #7</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>"Tara presence, thi atmosphere positive thai jay che."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" onclick="handleCardFlip(this)">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><span>🎀</span>
+                        <p>Reason #8</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>"Reasons bau che…
+                            pan maru final reason ae j che ke — tu mane kharekhar game che."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn-next" onclick="goToNextPage('dreamsPage')">Next →</button>
+    </section>
+
+    <!-- ==================== FUTURE DREAMS PAGE ==================== -->
+    <section class="page" id="dreamsPage">
+        <h2 class="section-title">Our Future Dreams 🌷</h2>
+        <p class="section-subtitle">Sweet moments I imagine with you 💭</p>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="left">
+                <div class="timeline-icon">☕</div>
+                <div class="timeline-content">
+                    <h3>Chai Pe Charcha</h3>
+                    <p>Cozy evenings with masala chai, sharing our day over kulhad, laughing on video calls. ☕💕</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="right">
+                <div class="timeline-icon">🎬</div>
+                <div class="timeline-content">
+                    <h3>Movie dates</h3>
+                    <p>Sharing blankets, sneaking popcorn, and watching our favorite movies together. 🍿🎬</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="left">
+                <div class="timeline-icon">📚</div>
+                <div class="timeline-content">
+                    <h3>College Bunk & Hangouts</h3>
+                    <p>Skipping boring lectures together, chilling and creating the best
+                        college memories. 📚🍛</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="right">
+                <div class="timeline-icon">🎪</div>
+                <div class="timeline-content">
+                    <h3>Garba Nights & Festivals</h3>
+                    <p>Dancing garba together during Navratri, celebrating every festival with love, food, and endless
+                        fun. 🪔💃</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="left">
+                <div class="timeline-icon">🌃</div>
+                <div class="timeline-content">
+                    <h3>Raat Ki Baatein</h3>
+                    <p>Late night calls, sharing secrets, dreams, and silly jokes until we fall asleep. 🌙⭐</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="right">
+                <div class="timeline-icon">🏠</div>
+                <div class="timeline-content">
+                    <h3>Our Little Space</h3>
+                    <p>A cozy life together, filled with love, laughter , and building our own
+                        little world. 🏡❤️</p>
+                </div>
+            </div>
+        </div>
+        <button class="btn-next" onclick="goToNextPage('proposalPage')">Next →</button>
+    </section>
+
+
+
+    <!-- ==================== FINAL PROPOSAL PAGE ==================== -->
+    <section class="page" id="proposalPage">
+        <div class="page-name">Proposal</div>
+        <div class="proposal-container">
+            <canvas id="confettiCanvas"></canvas>
+            <div class="proposal-content" id="proposalContent">
+                <div class="proposal-emoji">💍</div>
+                <h2 class="proposal-title">I Really Like You, Diya</h2>
+                <p class="proposal-text">
+                    kadach aa feeling ne hu perfectly explain na kari saku,<br>
+                    pan tari sathe vaat thay ne to dil genuinely happy thai jay che.<br>
+                    <br>
+                    Hu koi filmy proposal nathi karto,<br>
+                    pan ek simple question che…<br>
+                    shu Tane lage che ke apde<br>
+                    aa connection ne ek chance api shakie? 🙂
+                </p>
+                <button class="btn btn-yes btn-proposal" onclick="triggerConfetti()">
+
+                    Yes, I'll Be Your Valentine! 💖🎉
+                </button>
+            </div>
+            <div class="post-confetti" id="postConfetti">
+                <h1>Our Beginning ✨</h1>
+                <p>Okay… now officially smile vadhi gai 😄</p>
+                <br>
+                <p>Warning — have extra care, attention ane chai dates compulsory che ☕😂</p>
+                <p class="thank-you-text">Thank you Diya</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BACKGROUND MUSIC ==================== -->
+    <audio id="bgMusic" loop>
+        <source
+            src="https://cdn.pixabay.com/download/audio/2022/11/22/audio_febc508520.mp3?filename=romantic-piano-11022.mp3"
+            type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- ==================== LOVE SONG (Plays on last page) ==================== -->
+    <audio id="loveSong">
+        <source src="comp/love.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- ==================== TEDDY BEAR ==================== -->
+    <div class="teddy-container" id="teddyBtn">
+        <div class="teddy-icon">🧸</div>
+        <div class="teddy-popup" id="teddyPopup">
+            <p><strong>Hi Diya!</strong> <br> Just wanted to remind you that you're the cutest! 🥰</p>
+        </div>
+    </div>
+
+    <!-- Three.js for particles -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="particles.js"></script>
+    <script src="fireworks.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
